@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :image_comments
   resources :images
   get 'pages/landing', as: 'landing'
   get 'pages/home', as: 'home'
