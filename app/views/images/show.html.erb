@@ -37,8 +37,11 @@
     </div>
     <div class="row">
       <% if current_user.id == @image.user_id %>
-          <%= link_to 'Edit my post', edit_image_path(@image) %>
+          <%= link_to 'Edit my post', edit_image_path(@image), :class => "btn btn-default" %>
+          <%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
       <% end %>
+
+      <br><br>
 
       <% if @image.image_comment.count>0 %>
           <div class="comment-count">
@@ -49,12 +52,7 @@
     <div class="row">
       <ul>
         <% @image.image_comment.each do |image_comment| %>
-            <li><%= image_comment.email %>
-
-            </li>
-            <li><%= image_comment.comment %>
-              (<i><%= image_comment.user_id %></i>)
-            </li>
+            <li><%= image_comment.user.email %> said: <%= image_comment.comment %></li>
         <% end %>
       </ul>
     </div>

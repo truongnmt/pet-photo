@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable
 
   has_many :identities
+  has_many :images
 
   def twitter
     identities.where( :provider => "twitter" ).first
