@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   end
 
   def home
+    @image = Image.all
   end
 end
