@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :images
   get 'pages/landing', as: 'landing'
   get 'pages/home', as: 'home'
   root 'pages#landing'
